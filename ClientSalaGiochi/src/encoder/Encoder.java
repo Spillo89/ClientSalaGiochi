@@ -3,7 +3,7 @@ package encoder;
 public class Encoder {
 	//produce le stringhe da inviare tramite il socket
 	
-	public String unisci(String[] stringhe){
+	public static String unisci(String[] stringhe){
 		
 		String stringafinale = null;
 		

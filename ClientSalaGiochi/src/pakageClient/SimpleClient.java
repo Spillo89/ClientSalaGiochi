@@ -3,6 +3,8 @@ package pakageClient;
 import java.io.*; 
 import java.net.*; 
 
+import encoder.Encoder;
+
 import registrazione.Login;
  
 public class SimpleClient { 
@@ -16,6 +18,9 @@ public static void main(String[] args){
 	Socket socket = null; 
 	PrintWriter writer = null; 
 	BufferedReader reader = null; 
+	String[] stringhe=null;
+	String dainviare=null;
+	String ricevuta=null;
  
 	try { 
 		//Connessione al server remoto 
@@ -24,15 +29,16 @@ public static void main(String[] args){
 		reader = new BufferedReader(new InputStreamReader(socket.getInputStream())); 
 		//Inizializzo la scrittura sul socket 
 		writer = new PrintWriter(socket.getOutputStream(), true); 
-		BufferedReader inputBuffer = new BufferedReader(new InputStreamReader(System.in)); 
-		//richiamare Login
+		BufferedReader inputBuffer = new BufferedReader(new InputStreamReader(System.in));
+		stringhe=Login.login();
 		try { 
-			//inserisco la stringa di ritorno di Login = inputBuffer.readLine(); //Leggo da tastiera 
+			dainviare=Encoder.unisci(stringhe);
+			dainviare=inputBuffer.readLine();  
 		}finally{ 
 	 try { inputBuffer.close(); } catch (IOException e) { } 
 		} 
-		//writer.println(stringa); //Scrivo sul socket 
-		//stringa = reader.readLine(); //Leggo dal socket 
+		writer.println(dainviare);//scrivo su socket
+		ricevuta = reader.readLine(); //Leggo dal socket 
 		//System.out.println("Ricevuto dal server: " + stringa); 
 		} catch (UnknownHostException e) { 
 			System.err.println("Host "+host+" non conosciuto"); 
@@ -48,4 +54,6 @@ public static void main(String[] args){
 			} 
 		} 
 	 }
+
+
 }

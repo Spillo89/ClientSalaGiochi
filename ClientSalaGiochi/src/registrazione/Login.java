@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Login {
 	
 	
-	public String[] login(){
+	public static String[] login(){
 		
 		String NomeUtentePassword[] = null;
 		
@@ -20,9 +20,6 @@ public class Login {
 		scanner = new Scanner(System.in);
 		
 		NomeUtentePassword[1] = scanner.nextLine();
-		
-		
-
 		
 		return NomeUtentePassword;
 	}
