@@ -3,7 +3,7 @@ package pakageClient;
 import java.io.*; 
 import java.net.*; 
 
-import encoder.Encoder;
+import encoder.ClientEncoder;
 
 import registrazione.Login;
  
@@ -32,7 +32,7 @@ public static void main(String[] args){
 		BufferedReader inputBuffer = new BufferedReader(new InputStreamReader(System.in));
 		stringhe=Login.login();
 		try { 
-			dainviare=Encoder.unisci(stringhe);
+			dainviare=ClientEncoder.unisci(stringhe);
 			dainviare=inputBuffer.readLine();  
 		}finally{ 
 	 try { inputBuffer.close(); } catch (IOException e) { } 

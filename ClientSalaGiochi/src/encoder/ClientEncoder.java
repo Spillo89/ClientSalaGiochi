@@ -1,6 +1,6 @@
 package encoder;
 
-public class Encoder {
+public class ClientEncoder {
 	//produce le stringhe da inviare tramite il socket
 	
 	public static String unisci(String[] stringhe){
