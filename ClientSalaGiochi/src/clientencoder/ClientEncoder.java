@@ -1,4 +1,4 @@
-package encoder;
+package clientencoder;
 
 public class ClientEncoder {
 	//produce le stringhe da inviare tramite il socket

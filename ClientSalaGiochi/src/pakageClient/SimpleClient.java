@@ -3,9 +3,11 @@ package pakageClient;
 import java.io.*; 
 import java.net.*; 
 
-import encoder.ClientEncoder;
+import clientencoder.ClientEncoder;
+
 
 import registrazione.Login;
+import registrazione.Opzione;
  
 public class SimpleClient { 
  
@@ -30,10 +32,10 @@ public static void main(String[] args){
 		//Inizializzo la scrittura sul socket 
 		writer = new PrintWriter(socket.getOutputStream(), true); 
 		BufferedReader inputBuffer = new BufferedReader(new InputStreamReader(System.in));
-		stringhe=Login.login();
+		stringhe=Opzione.opzione();
 		try { 
 			dainviare=ClientEncoder.unisci(stringhe);
-			dainviare=inputBuffer.readLine();  
+			dainviare=inputBuffer.readLine();			//invio la combinazione user name e pass + se loggare o registrarsi al server
 		}finally{ 
 	 try { inputBuffer.close(); } catch (IOException e) { } 
 		} 

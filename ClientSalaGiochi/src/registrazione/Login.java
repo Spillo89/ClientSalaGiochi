@@ -21,6 +21,8 @@ public class Login {
 		
 		NomeUtentePassword[1] = scanner.nextLine();
 		
+		scanner.close();
+		
 		return NomeUtentePassword;
 	}
 
