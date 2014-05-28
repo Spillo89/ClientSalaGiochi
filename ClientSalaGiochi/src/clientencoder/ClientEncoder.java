@@ -11,7 +11,7 @@ public class ClientEncoder {
 			if(stringhe.length==i+1){
 				stringafinale=stringhe[i]; // se la stringa è l'ultima non inserisce il token
 			}else{
-				stringafinale=stringhe[i]+"£"; // £ token che divide le varie stringhe
+				stringafinale=stringhe[i]+"#"; // £ token che divide le varie stringhe
 		
 			}
 		}

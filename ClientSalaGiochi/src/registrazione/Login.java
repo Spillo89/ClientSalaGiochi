@@ -13,13 +13,13 @@ public class Login {
 
 		Scanner scanner = new Scanner(System.in); 
 
-		NomeUtentePassword[0] = scanner.nextLine(); 
+		NomeUtentePassword[1] = scanner.nextLine(); 
 		
 		System.out.println("Inserire il nome passsword");
 		
 		scanner = new Scanner(System.in);
 		
-		NomeUtentePassword[1] = scanner.nextLine();
+		NomeUtentePassword[2] = scanner.nextLine();
 		
 		scanner.close();
 		

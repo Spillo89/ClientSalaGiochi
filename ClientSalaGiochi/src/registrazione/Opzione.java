@@ -19,10 +19,10 @@ public class Opzione {
 
 		if(stringa.equalsIgnoreCase("r")){
 			stringhe=Registrami.registrazione();
-			stringhe[3]="r";							//se devo registrarmi mando al server la 3a cella con una r che lui controllerà prima di fare tutto
+			stringhe[0]="REGISTAZIONE";							//se devo registrarmi mando al server la 3a cella con una r che lui controllerà prima di fare tutto
 		}else{
 			stringhe=Login.login();
-			stringhe[3]="l";							//se devo loggare mando l
+			stringhe[0]="LOGIN";							//se devo loggare mando l
 		}
 
 		scanner.close();
