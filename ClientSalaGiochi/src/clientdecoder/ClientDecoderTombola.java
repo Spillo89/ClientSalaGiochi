@@ -5,45 +5,25 @@ import java.util.StringTokenizer;
 import costruttore.LoginFail;
 import costruttore.NoCrediti;
 import costruttore.SchedaTombola;
-import costruttore.UtentePostlogin;
+import costruttore.VincitaTombola;
 
 public class ClientDecoderTombola {
-	public static void decodertombola(String stringainiziale){
-		Integer i=null;
-		Integer j=null;
+		public static void decodertombola(String stringainiziale){
 
-		StringTokenizer st = new StringTokenizer(stringainiziale, "#");
-		switch (st.nextToken())
-		{
-		case "KO":
-			NoCrediti.setCreditiTotali(Integer.parseInt(st.nextToken()));
-		case "OK":
-			SchedaTombola.setNumeroSchede(Integer.parseInt(st.nextToken()));
-			for(i=0;i<3;i++){
-				for(j=0;i<9;i++){
-					SchedaTombola.setValoriScheda1(Integer.parseInt(st.nextToken()), i, j);
-				}
-			}
-			for(i=0;i<3;i++){
-				for(j=0;i<9;i++){
-					SchedaTombola.setValoriScheda2(Integer.parseInt(st.nextToken()), i, j);
-				}
-			}
-			for(i=0;i<3;i++){
-				for(j=0;i<9;i++){
-					SchedaTombola.setValoriScheda3(Integer.parseInt(st.nextToken()), i, j);
-				}
-			}
-			for(i=0;i<3;i++){
-				for(j=0;i<9;i++){
-					SchedaTombola.setValoriScheda4(Integer.parseInt(st.nextToken()), i, j);
-				}
-			}
-			SchedaTombola.setCreditiTotali(Integer.parseInt(st.nextToken()));
-		default:
-			System.out.println("errore, stringa non riconosciuta");	
-		};
+			StringTokenizer st = new StringTokenizer(stringainiziale, "#");
+			switch (st.nextToken())
+			{
+			case "KO":
+				LoginFail.setMotivo(st.nextToken());
+			case "OK":
+				VincitaTombola.setVincita(Integer.parseInt(st.nextToken()));
+				VincitaTombola.setTipodiVincita(st.nextToken());
+				VincitaTombola.setSchedadaBloccare(Integer.parseInt(st.nextToken()));
+				VincitaTombola.setLineadaBloccare(Integer.parseInt(st.nextToken()));
+			default:
+				System.out.println("errore, stringa non riconosciuta");	
+			};
 
 
-	}
+		}
 }
