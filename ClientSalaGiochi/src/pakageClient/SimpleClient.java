@@ -2,6 +2,7 @@ package pakageClient;
 
 import java.io.*; 
 import java.net.*; 
+import java.util.Scanner;
 
 import opzioni.*;
 
@@ -16,6 +17,7 @@ import clientdecoder.ClientDecoderLogin;
 import clientdecoder.ClientDecoderRegistrazione;
 import clientdecoder.ClientDecoderSlot;
 import clientdecoder.ClientDecoderTombola;
+import clientencoder.ClientEncoderVincita;
 
 //import clientencoder.ClientEncoder;
 
@@ -126,26 +128,46 @@ public class SimpleClient {
 								}
 							}
 						}
-						
-						
+						for(int j=0; j<3;j++){
+							int i=0;
+							for(int k=0;k<9;k++){
+								if(SchedaTombola.getValoriScheda1(j, k).contains("*")){
+									i++;
+								}
+								if(i>2){
+									System.out.println("hai vinto qulacosa, dichiara la tua vincita digitando v o non dichiararla digitando l");
+									
+									Scanner scanner = new Scanner(System.in); 
+
+									String stringa = scanner.nextLine();
+									
+									if(stringa.equalsIgnoreCase("v")){
+										dainviare=ClientEncoderVincita.tombola();
+										dainviare=inputBuffer.readLine();
+										writer.println(dainviare);
+										ricevuta=reader.readLine();
+									}
+								}
+							}
+						}
 					}
 				}
 			}
 
-	} catch (UnknownHostException e) { 
-		System.err.println("Host "+host+" non conosciuto"); 
-		System.exit(1); 
-	} catch (IOException e) { 
-		System.err.println("Connessione a "+host+" non riuscita"); 
-		System.exit(1); 
-	}finally{ //Alla fine chiudo sempre il reader, il writer e il socket 
-		try { reader.close(); } catch (IOException e) {} 
-		writer.close(); 
-		if(!socket.isClosed()){ 
-			try {socket.close(); } catch (IOException e) {} 
+		} catch (UnknownHostException e) { 
+			System.err.println("Host "+host+" non conosciuto"); 
+			System.exit(1); 
+		} catch (IOException e) { 
+			System.err.println("Connessione a "+host+" non riuscita"); 
+			System.exit(1); 
+		}finally{ //Alla fine chiudo sempre il reader, il writer e il socket 
+			try { reader.close(); } catch (IOException e) {} 
+			writer.close(); 
+			if(!socket.isClosed()){ 
+				try {socket.close(); } catch (IOException e) {} 
+			} 
 		} 
-	} 
-}
+	}
 
 
 }
