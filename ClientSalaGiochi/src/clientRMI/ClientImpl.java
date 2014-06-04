@@ -13,7 +13,6 @@ import commonsRMI.Server;
 import commonsRMImulti.Client;
 import commonsRMImulti.ServerAccept;
 
-import beans.InfoUtenti;
 
 public class ClientImpl extends UnicastRemoteObject implements Client {
 	/**

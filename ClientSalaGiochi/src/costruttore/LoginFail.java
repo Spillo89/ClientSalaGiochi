@@ -12,7 +12,7 @@ public class LoginFail {
 		Motivo=motivo;
 	}
 	
-	public String getMotivo(){
+	public static String getMotivo(){
 		return Motivo;
 	}
 

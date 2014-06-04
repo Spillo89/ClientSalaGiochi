@@ -1,5 +1,6 @@
 package clientencoder;
 
+import pakageClient.SimpleClient;
 import costruttore.PerRegistrazione;
 
 public class ClientEncoderRegistrazione {
@@ -8,6 +9,8 @@ public class ClientEncoderRegistrazione {
 	public static String registrazione(){
 		
 		String stringadainviare=null;
+		
+		SimpleClient.parolachiave="REGISTRAZIONE";
 		
 		stringadainviare="REGISTRAZIONE#";
 		stringadainviare=stringadainviare+PerRegistrazione.getNome()+"#";
