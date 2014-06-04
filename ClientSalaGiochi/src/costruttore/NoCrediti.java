@@ -12,7 +12,7 @@ public class NoCrediti {
 		CreditiTotali=credititotali;
 	}
 	
-	public Integer getCreditiTotali(){
+	public static Integer getCreditiTotali(){
 		return CreditiTotali;
 	}
 

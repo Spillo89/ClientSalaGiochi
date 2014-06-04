@@ -4,12 +4,14 @@ package opzioni;
 
 import java.util.Scanner;
 
+import pakageClient.SimpleClient;
+
 import clientencoder.*;
 
 import costruttore.PerRegistrazione;
 import costruttore.RichiestaTombola;
 
-public class OpzioneGioco {
+public class OpzioneSceltaGioco {
 
 	public static String opzione(){
 
@@ -30,6 +32,8 @@ public class OpzioneGioco {
 
 			dainviare=ClientEncoderSlot.slot();
 			
+			SimpleClient.parolachiave="SLOT";
+			
 			scanner.close();
 			
 			return dainviare;
@@ -43,6 +47,8 @@ public class OpzioneGioco {
 				RichiestaTombola.setNumeroSchede(Integer.parseInt(scanner.nextLine()));
 				
 				dainviare=ClientEncoderTombola.tombola();
+				
+				SimpleClient.parolachiave="TOMBOLA";
 				
 				scanner.close();
 				

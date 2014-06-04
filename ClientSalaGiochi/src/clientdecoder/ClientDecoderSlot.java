@@ -2,6 +2,8 @@ package clientdecoder;
 
 import java.util.StringTokenizer;
 
+import pakageClient.SimpleClient;
+
 import costruttore.LoginFail;
 import costruttore.NoCrediti;
 import costruttore.RisultatoSlot;
@@ -15,6 +17,7 @@ public class ClientDecoderSlot {
 		{
 			case "KO":
 				NoCrediti.setCreditiTotali(Integer.parseInt((st.nextToken())));
+				SimpleClient.parolachiave="KO";
 			case "OK":
 				RisultatoSlot.setValore1(st.nextToken());
 				RisultatoSlot.setValore2(st.nextToken());
@@ -22,6 +25,7 @@ public class ClientDecoderSlot {
 				RisultatoSlot.setRisultato(st.nextToken());
 				RisultatoSlot.setCreditiVinti(Integer.parseInt(st.nextToken()));
 				RisultatoSlot.setCreditiTotali(Integer.parseInt(st.nextToken()));
+				SimpleClient.parolachiave="OK";
 			default:
 				System.out.println("errore, stringa non riconosciuta");	
 		};
