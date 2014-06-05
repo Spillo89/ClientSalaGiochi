@@ -1,7 +1,5 @@
 package clientencoder;
 
-import costruttore.PerRegistrazione;
-
 public class ClientEncoderSlot {
 public static String slot(){
 		

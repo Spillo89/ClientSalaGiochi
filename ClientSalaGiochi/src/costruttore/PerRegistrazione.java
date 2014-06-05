@@ -7,6 +7,7 @@ public class PerRegistrazione {
 	private static String NomeUtente=null;
 	private static String Psw=null;
 	
+	@SuppressWarnings("static-access")
 	public void registra(String nome, String cognome, String nomeutente, String psw) {
 		this.Nome=nome;
 		this.Cognome=cognome;

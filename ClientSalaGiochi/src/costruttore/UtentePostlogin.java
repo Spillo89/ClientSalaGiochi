@@ -1,7 +1,5 @@
 package costruttore;
 
-import java.sql.Date;
-
 public class UtentePostlogin {
 
 	private static String Nome=null;
@@ -12,11 +10,12 @@ public class UtentePostlogin {
 	
 	
 	
+	@SuppressWarnings("static-access")
 	public UtentePostlogin(String nome, String cognome, Integer crediti, String ultimologin, Integer posizione) {
 		this.Nome=nome;
 		this.Cognome=cognome;
 		this.Crediti=crediti;
-		this.UltimoLogin=UltimoLogin;
+		this.UltimoLogin=ultimologin;
 		this.Posizione=posizione;
 	}
 	

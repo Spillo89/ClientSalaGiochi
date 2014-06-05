@@ -4,6 +4,7 @@ public class NumeroEstratto {
 
 	private static Integer Numero=null;
 	
+	@SuppressWarnings("static-access")
 	public void estrazione(Integer numero){
 		this.Numero=numero;
 	}

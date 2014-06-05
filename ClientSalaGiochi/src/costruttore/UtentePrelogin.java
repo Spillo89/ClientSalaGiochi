@@ -8,6 +8,7 @@ public class UtentePrelogin {
 	
 	
 	
+	@SuppressWarnings("static-access")
 	public UtentePrelogin(String nomeutente, String psw, String azione) {
 		super();
 		this.NomeUtente=nomeutente;

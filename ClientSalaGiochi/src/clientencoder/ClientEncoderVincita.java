@@ -1,6 +1,6 @@
 package clientencoder;
 
-import costruttore.RichiestaTombola;
+import costruttore.VincitaTombola;
 
 public class ClientEncoderVincita {
 
@@ -11,7 +11,7 @@ public static String tombola(){
 		
 		stringadainviare="VINCITATOMBOLA#";
 		
-		stringadainviare=stringadainviare+RichiestaTombola.getNumeroSchede()+"\n";
+		stringadainviare=stringadainviare+VincitaTombola.getTipodiVincita()+"\n";
 		
 		return stringadainviare;
 

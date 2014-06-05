@@ -9,6 +9,7 @@ public class RisultatoSlot {
 	private static Integer CreditiVinti=null;
 	private static Integer CreditiTotali=null;
 	
+	@SuppressWarnings("static-access")
 	public void risultatoslot(String valore1, String valore2, String valore3, String risultato, Integer creditivinti, Integer credititotali) {
 		this.Valore1=valore1;
 		this.Valore2=valore2;

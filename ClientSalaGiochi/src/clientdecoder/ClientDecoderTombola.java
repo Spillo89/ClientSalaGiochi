@@ -3,8 +3,6 @@ package clientdecoder;
 import java.util.StringTokenizer;
 
 import costruttore.LoginFail;
-import costruttore.NoCrediti;
-import costruttore.SchedaTombola;
 import costruttore.VincitaTombola;
 
 public class ClientDecoderTombola {

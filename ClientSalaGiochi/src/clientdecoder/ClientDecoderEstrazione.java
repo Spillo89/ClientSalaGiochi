@@ -3,9 +3,7 @@ package clientdecoder;
 import java.util.StringTokenizer;
 
 import costruttore.LoginFail;
-import costruttore.NoCrediti;
 import costruttore.NumeroEstratto;
-import costruttore.RisultatoSlot;
 
 public class ClientDecoderEstrazione {
 	

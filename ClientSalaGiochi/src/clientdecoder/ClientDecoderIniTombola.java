@@ -4,10 +4,8 @@ import java.util.StringTokenizer;
 
 import pakageClient.SimpleClient;
 
-import costruttore.LoginFail;
 import costruttore.NoCrediti;
 import costruttore.SchedaTombola;
-import costruttore.UtentePostlogin;
 
 public class ClientDecoderIniTombola {
 	public static void decoderinitombola(String stringainiziale){

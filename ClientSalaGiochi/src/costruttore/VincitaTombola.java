@@ -7,6 +7,7 @@ public class VincitaTombola {
 	private static Integer SchedadaBloccare=null;
 	private static Integer LineadaBloccare=null;
 	
+	@SuppressWarnings("static-access")
 	public void risultatoslot(Integer vincita,String tipodivincita, Integer schedadabloccare, Integer lineadabloccare) {
 		this.Vincita=vincita;
 		this.TipodiVincita=tipodivincita;

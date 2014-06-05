@@ -4,10 +4,8 @@ import java.util.StringTokenizer;
 
 import pakageClient.SimpleClient;
 
-import costruttore.LoginFail;
 import costruttore.NoCrediti;
 import costruttore.RisultatoSlot;
-import costruttore.UtentePostlogin;
 
 public class ClientDecoderSlot {
 	public static void decoderslot(String stringainiziale){

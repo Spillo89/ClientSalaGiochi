@@ -4,6 +4,7 @@ public class LoginFail {
 	
 	private static String Motivo=null;
 	
+	@SuppressWarnings("static-access")
 	public LoginFail(String motivo) {
 		this.Motivo=motivo;
 	}

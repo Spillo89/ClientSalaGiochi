@@ -4,6 +4,7 @@ public class NoCrediti {
 	
 	private static Integer CreditiTotali=null;
 	
+	@SuppressWarnings("static-access")
 	public NoCrediti(Integer credititotali) {
 		this.CreditiTotali=credititotali;
 	}

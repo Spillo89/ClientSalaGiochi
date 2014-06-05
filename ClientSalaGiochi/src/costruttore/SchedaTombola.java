@@ -10,6 +10,7 @@ public class SchedaTombola {
 	private static Integer CreditiTotali=null;
 	
 	
+	@SuppressWarnings("static-access")
 	public void risultatoslot(Integer numeroschede, String valorischeda1[][], String valorischeda2[][], String valorischeda3[][], String valorischeda4[][], Integer credititotali) {
 		this.NumeroSchede=numeroschede;
 		this.ValoriScheda1=valorischeda1;
