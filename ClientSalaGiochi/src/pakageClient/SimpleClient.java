@@ -12,6 +12,8 @@ import costruttore.RisultatoSlot;
 import costruttore.SchedaTombola;
 import costruttore.VincitaTombola;
 
+import clientdecoder.ClientDecoderGiornaliera;
+import clientdecoder.ClientDecoderGlobale;
 import clientdecoder.ClientDecoderLogin;
 import clientdecoder.ClientDecoderRegistrazione;
 import clientdecoder.ClientDecoderSlot;
@@ -74,7 +76,7 @@ public class SimpleClient {
 			while(ripeti==false){
 
 
-				dainviare=OpzioneSceltaGioco.opzione();
+				dainviare=OpzioneSceltaGioco.opzione(); //chiedo all'utente cosa vuole fare
 				try{
 					dainviare=inputBuffer.readLine();
 				}finally{
@@ -487,6 +489,23 @@ public class SimpleClient {
 					}else{
 						if(SimpleClient.parolachiave.equalsIgnoreCase("RUBAMAZZO")){
 							//da fare
+						}else{
+							if(SimpleClient.parolachiave.equalsIgnoreCase("CLASSIFICAGLOBALE")){
+
+								ClientDecoderGlobale.decoderestrazione(ricevuta);
+								for(int i=0;i<ClientDecoderGlobale.classifica.size();i++){
+									System.out.println("il "+ i+1 +"in classifica globale è::"+ClientDecoderGlobale.classifica.get(i));
+								}
+
+							}
+							else{
+								if(SimpleClient.parolachiave.equalsIgnoreCase("CLASSIFICAGIORNALIERA")){
+									ClientDecoderGiornaliera.decoderestrazione(ricevuta);
+									for(int i=0;i<ClientDecoderGiornaliera.classifica.size();i++){
+										System.out.println("il "+ i+1 +"in classifica globale è::"+ClientDecoderGiornaliera.classifica.get(i));
+									}
+								}
+							}
 						}
 					}
 				}

@@ -25,13 +25,9 @@ public class OpzioneIniziale {
 			
 			System.out.println("Inserire il nome utente che preferisci");
 
-			scanner = new Scanner(System.in); 
-
 			PerRegistrazione.setNomeUtente(scanner.nextLine()); 
 			
 			System.out.println("Inserire il nome password che preferisci");
-			
-			scanner = new Scanner(System.in);
 			
 			PerRegistrazione.setPsw(scanner.nextLine());
 			
@@ -53,13 +49,9 @@ public class OpzioneIniziale {
 			
 			System.out.println("Inserire il nome utente");
 
-			scanner = new Scanner(System.in); 
-
 			PerRegistrazione.setNomeUtente(scanner.nextLine()); 
 			
 			System.out.println("Inserire il nome password");
-			
-			scanner = new Scanner(System.in);
 			
 			PerRegistrazione.setPsw(scanner.nextLine());
 			
