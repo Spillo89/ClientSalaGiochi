@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 import pakageClient.SimpleClient;
 import costruttore.Carta;
 import costruttore.LoginFail;
+import costruttore.NoCrediti;
 
 public class ClientDecoderRubamazzo {
 
@@ -15,6 +16,10 @@ public class ClientDecoderRubamazzo {
 	public static Carta CartainCima1=null;
 	public static Carta CartainCima2=null;
 	public static Carta CartainCima3=null;
+	public static Integer CartenelMazzetto0=null;
+	public static Integer CartenelMazzetto1=null;
+	public static Integer CartenelMazzetto2=null;
+	public static Integer CartenelMazzetto3=null;
 
 	public static void decoderestrazione(String stringainiziale){
 
@@ -23,7 +28,8 @@ public class ClientDecoderRubamazzo {
 		switch (st.nextToken())
 		{
 		case "KO":
-			LoginFail.setMotivo(st.nextToken());
+			NoCrediti.setCreditiTotali(Integer.parseInt(st.nextToken()));
+			SimpleClient.parolachiave="KO";
 		case "OK":
 
 			while(st.nextElement() != "CARTEINMANO"){
@@ -44,11 +50,16 @@ public class ClientDecoderRubamazzo {
 			
 			CartainCima0=carta;
 			
+			CartenelMazzetto0=Integer.parseInt(st.nextToken());
+			
 			if(st.nextElement()!=null){
 				carta.setVal(Integer.parseInt(st.nextToken()));
 				carta.setSeme(st.nextToken());
 				
 				CartainCima1=carta;
+			}
+			if(st.nextElement()!=null){
+				CartenelMazzetto1=Integer.parseInt(st.nextToken());
 			}
 			if(st.nextElement()!=null){
 				carta.setVal(Integer.parseInt(st.nextToken()));
@@ -57,10 +68,16 @@ public class ClientDecoderRubamazzo {
 				CartainCima2=carta;
 			}
 			if(st.nextElement()!=null){
+				CartenelMazzetto2=Integer.parseInt(st.nextToken());
+			}
+			if(st.nextElement()!=null){
 				carta.setVal(Integer.parseInt(st.nextToken()));
 				carta.setSeme(st.nextToken());
 				
 				CartainCima3=carta;
+			}
+			if(st.nextElement()!=null){
+				CartenelMazzetto3=Integer.parseInt(st.nextToken());
 			}
 			SimpleClient.parolachiave="OK";
 		default:

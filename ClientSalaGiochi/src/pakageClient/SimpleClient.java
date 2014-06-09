@@ -14,8 +14,10 @@ import costruttore.VincitaTombola;
 
 import clientdecoder.ClientDecoderGiornaliera;
 import clientdecoder.ClientDecoderGlobale;
+import clientdecoder.ClientDecoderIniRubamazzo;
 import clientdecoder.ClientDecoderLogin;
 import clientdecoder.ClientDecoderRegistrazione;
+import clientdecoder.ClientDecoderRubamazzo;
 import clientdecoder.ClientDecoderSlot;
 import clientdecoder.ClientDecoderTombola;
 import clientencoder.ClientEncoderVincita;
@@ -51,7 +53,7 @@ public class SimpleClient {
 			while(ripeti==false){
 				dainviare=OpzioneIniziale.opzione();
 				try { 
-					dainviare=inputBuffer.readLine();			//invio la combinazione user name e pass + se loggare o registrarsi al server
+					//invio la combinazione user name e pass + se loggare o registrarsi al server
 				}finally{ 
 					try { inputBuffer.close(); } catch (IOException e) { } 
 				} 
@@ -78,7 +80,7 @@ public class SimpleClient {
 
 				dainviare=OpzioneSceltaGioco.opzione(); //chiedo all'utente cosa vuole fare
 				try{
-					dainviare=inputBuffer.readLine();
+
 				}finally{
 					try { inputBuffer.close(); } catch (IOException e) { } 
 				}
@@ -103,7 +105,7 @@ public class SimpleClient {
 						while(VincitaTombola.getTipodiVincita().equalsIgnoreCase("TOMBOLA")){ //ciclo controllo scheda e segnatura numeri usciti
 							Thread.sleep(4000);
 							dainviare="ESTRAZIONE\n";
-							dainviare=inputBuffer.readLine();
+
 							writer.println(dainviare);
 							ricevuta=reader.readLine();
 							System.out.println("il numero estrato è: "+Integer.parseInt(ricevuta));
@@ -150,7 +152,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("AMBO");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -166,7 +168,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TERNO");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -182,7 +184,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("QUATERNA");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -198,7 +200,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("CINQUINA");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -214,7 +216,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TOMBOLA");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -238,7 +240,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("AMBO");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -254,7 +256,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TERNO");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -270,7 +272,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("QUATERNA");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -286,7 +288,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("CINQUINA");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -302,7 +304,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TOMBOLA");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -326,7 +328,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("AMBO");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -342,7 +344,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TERNO");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -358,7 +360,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("QUATERNA");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -374,7 +376,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("CINQUINA");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -390,7 +392,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TOMBOLA");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -414,7 +416,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("AMBO");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -430,7 +432,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TERNO");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -446,7 +448,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("QUATERNA");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -462,7 +464,7 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("CINQUINA");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
+
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -478,7 +480,6 @@ public class SimpleClient {
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TOMBOLA");
 										dainviare=ClientEncoderVincita.tombola();
-										dainviare=inputBuffer.readLine();
 										writer.println(dainviare);
 										ricevuta=reader.readLine();
 									}
@@ -488,7 +489,42 @@ public class SimpleClient {
 						}
 					}else{
 						if(SimpleClient.parolachiave.equalsIgnoreCase("RUBAMAZZO")){
-							//da fare
+
+							ClientDecoderIniRubamazzo.decoderinirubamazzo(ricevuta);
+
+							if(parolachiave.equalsIgnoreCase("KO")){
+								System.out.println("non puoi giocare perchè hai "+NoCrediti.getCreditiTotali()+" crediti e sono troppo pochi");
+							}
+							else{
+								//chiedere l'aggiornamento quando non giochi tu o giocare in caso sia il tuo turno facendo scorrere l'array lista e vedendo se il nome al'interno è uguale a quello dell'utente
+							}
+							ClientDecoderRubamazzo.decoderestrazione(ricevuta);
+
+							if(parolachiave.equalsIgnoreCase("KO")){
+								System.out.println("non puoi giocare perchè hai "+NoCrediti.getCreditiTotali()+" crediti e sono troppo pochi");
+							}else{
+								System.out.println("le tue carte in mano sono:");
+								for(int i=0;i<ClientDecoderRubamazzo.CarteinMano.size();i++){
+									System.out.println(""+ClientDecoderRubamazzo.CarteinMano.get(i));
+								}
+								System.out.println("le tue carte in banco sono:");
+								for(int i=0;i<ClientDecoderRubamazzo.CarteinBanco.size();i++){
+									System.out.println(""+ClientDecoderRubamazzo.CarteinBanco.get(i));
+								}
+								System.out.println("la carta in cima al tuo mazzo è: "+ClientDecoderRubamazzo.CartainCima0.getVal()+" "+ClientDecoderRubamazzo.CartainCima0.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto0);
+								System.out.println("la carta in cima al mazzetto del giocatore1: "+ClientDecoderRubamazzo.CartainCima1.getVal()+" "+ClientDecoderRubamazzo.CartainCima1.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto1);
+								if(ClientDecoderRubamazzo.CartenelMazzetto2!=null){
+									System.out.println("la carta in cima al tuo mazzo del giocatore2: "+ClientDecoderRubamazzo.CartainCima2.getVal()+" "+ClientDecoderRubamazzo.CartainCima2.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto2);
+								}
+								if(ClientDecoderRubamazzo.CartenelMazzetto3!=null){
+									System.out.println("la carta in cima al tuo mazzo del giocatore3: "+ClientDecoderRubamazzo.CartainCima3.getVal()+" "+ClientDecoderRubamazzo.CartainCima3.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto3);
+								}
+
+
+
+							}
+
+
 						}else{
 							if(SimpleClient.parolachiave.equalsIgnoreCase("CLASSIFICAGLOBALE")){
 

@@ -71,7 +71,10 @@ public class OpzioneSceltaGioco {
 						return dainviare;
 					}else{
 						if(stringa.equalsIgnoreCase("R")){
-							//da fare
+							dainviare=ClientEncoderIniRubamazzo.rubamazzo();
+							
+							SimpleClient.parolachiave="RUBAMAZZO";
+							
 							return dainviare;
 						}
 						else{

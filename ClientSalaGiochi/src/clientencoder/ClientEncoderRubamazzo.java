@@ -10,7 +10,8 @@ public static String rubamazzo(){
 		
 		stringadainviare="RUBAMAZZO#";
 		
-		stringadainviare=stringadainviare+Rubamazzo.getCartaGiocata()+"\n";
+		stringadainviare=stringadainviare;
+		
 		
 		return stringadainviare;
 
