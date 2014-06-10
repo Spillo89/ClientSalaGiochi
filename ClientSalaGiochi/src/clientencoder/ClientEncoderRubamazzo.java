@@ -1,8 +1,10 @@
 package clientencoder;
 
+import costruttore.Carta;
+
 public class ClientEncoderRubamazzo {
 
-public static String rubamazzo(){
+public static String rubamazzo(Carta carta){
 		
 		String stringadainviare=null;
 		
@@ -10,7 +12,8 @@ public static String rubamazzo(){
 		
 		stringadainviare="RUBAMAZZO#";
 		
-		stringadainviare=stringadainviare;
+		stringadainviare=stringadainviare+carta.getVal()+"#";
+		stringadainviare=stringadainviare+carta.getSeme()+"\n";
 		
 		
 		return stringadainviare;

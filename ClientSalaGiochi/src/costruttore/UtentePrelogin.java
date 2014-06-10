@@ -28,7 +28,7 @@ public class UtentePrelogin {
 		NomeUtente=nomeutente;
 	}
 	
-	public String getNomeUtente(){
+	public static String getNomeUtente(){
 		return NomeUtente;
 	}
 	

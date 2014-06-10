@@ -6,10 +6,12 @@ import java.util.Scanner;
 
 import opzioni.*;
 
+import costruttore.Carta;
 import costruttore.LoginFail;
 import costruttore.NoCrediti;
 import costruttore.RisultatoSlot;
 import costruttore.SchedaTombola;
+import costruttore.UtentePrelogin;
 import costruttore.VincitaTombola;
 
 import clientdecoder.ClientDecoderGiornaliera;
@@ -20,6 +22,7 @@ import clientdecoder.ClientDecoderRegistrazione;
 import clientdecoder.ClientDecoderRubamazzo;
 import clientdecoder.ClientDecoderSlot;
 import clientdecoder.ClientDecoderTombola;
+import clientencoder.ClientEncoderRubamazzo;
 import clientencoder.ClientEncoderVincita;
 
 //import clientencoder.ClientEncoder;
@@ -496,33 +499,70 @@ public class SimpleClient {
 								System.out.println("non puoi giocare perchè hai "+NoCrediti.getCreditiTotali()+" crediti e sono troppo pochi");
 							}
 							else{
+								int i=0;
+								while(SimpleClient.parolachiave.equalsIgnoreCase("FINE")){
+									if(ClientDecoderIniRubamazzo.lista.get(i).equals(UtentePrelogin.getNomeUtente())){
+
+
+										System.out.println("le tue carte in mano sono:");
+										for(int j=0;j<ClientDecoderRubamazzo.CarteinMano.size();j++){
+											System.out.println(""+ClientDecoderRubamazzo.CarteinMano.get(j));
+										}
+										System.out.println("le tue carte in banco sono:");
+										for(int j=0;j<ClientDecoderRubamazzo.CarteinBanco.size();j++){
+											System.out.println(""+ClientDecoderRubamazzo.CarteinBanco.get(j));
+										}
+										System.out.println("la carta in cima al tuo mazzo è: "+ClientDecoderRubamazzo.CartainCima0.getVal()+" "+ClientDecoderRubamazzo.CartainCima0.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto0);
+										System.out.println("la carta in cima al mazzetto del giocatore1: "+ClientDecoderRubamazzo.CartainCima1.getVal()+" "+ClientDecoderRubamazzo.CartainCima1.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto1);
+										if(ClientDecoderRubamazzo.CartenelMazzetto2!=null){
+											System.out.println("la carta in cima al tuo mazzo del giocatore2: "+ClientDecoderRubamazzo.CartainCima2.getVal()+" "+ClientDecoderRubamazzo.CartainCima2.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto2);
+										}
+										if(ClientDecoderRubamazzo.CartenelMazzetto3!=null){
+											System.out.println("la carta in cima al tuo mazzo del giocatore3: "+ClientDecoderRubamazzo.CartainCima3.getVal()+" "+ClientDecoderRubamazzo.CartainCima3.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto3);
+										}
+
+										System.out.println("scegli la carta da giocare");
+
+										Carta carta=OpzioneCarta.opzionecarta();
+
+										dainviare=ClientEncoderRubamazzo.rubamazzo(carta);
+
+										writer.println(dainviare);
+
+										i++;
+										if(i+1==ClientDecoderIniRubamazzo.lista.size()){
+											i=0;
+										}
+										ClientDecoderIniRubamazzo.decoderinirubamazzo(ricevuta);
+									}
+									else{
+										System.out.println("le tue carte in mano sono:");
+										for(int j=0;i<ClientDecoderRubamazzo.CarteinMano.size();i++){
+											System.out.println(""+ClientDecoderRubamazzo.CarteinMano.get(i));
+										}
+										System.out.println("le tue carte in banco sono:");
+										for(int j=0;i<ClientDecoderRubamazzo.CarteinBanco.size();i++){
+											System.out.println(""+ClientDecoderRubamazzo.CarteinBanco.get(i));
+										}
+										System.out.println("la carta in cima al tuo mazzo è: "+ClientDecoderRubamazzo.CartainCima0.getVal()+" "+ClientDecoderRubamazzo.CartainCima0.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto0);
+										System.out.println("la carta in cima al mazzetto del giocatore1: "+ClientDecoderRubamazzo.CartainCima1.getVal()+" "+ClientDecoderRubamazzo.CartainCima1.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto1);
+										if(ClientDecoderRubamazzo.CartenelMazzetto2!=null){
+											System.out.println("la carta in cima al tuo mazzo del giocatore2: "+ClientDecoderRubamazzo.CartainCima2.getVal()+" "+ClientDecoderRubamazzo.CartainCima2.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto2);
+										}
+										if(ClientDecoderRubamazzo.CartenelMazzetto3!=null){
+											System.out.println("la carta in cima al tuo mazzo del giocatore3: "+ClientDecoderRubamazzo.CartainCima3.getVal()+" "+ClientDecoderRubamazzo.CartainCima3.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto3);
+										}
+										i++;
+										ClientDecoderIniRubamazzo.decoderinirubamazzo(ricevuta);
+										if(i+1==ClientDecoderIniRubamazzo.lista.size()){
+											i=0;
+										}
+
+									}
+								}
 								//chiedere l'aggiornamento quando non giochi tu o giocare in caso sia il tuo turno facendo scorrere l'array lista e vedendo se il nome al'interno è uguale a quello dell'utente
 							}
-							ClientDecoderRubamazzo.decoderestrazione(ricevuta);
 
-							if(parolachiave.equalsIgnoreCase("KO")){
-								System.out.println("non puoi giocare perchè hai "+NoCrediti.getCreditiTotali()+" crediti e sono troppo pochi");
-							}else{
-								System.out.println("le tue carte in mano sono:");
-								for(int i=0;i<ClientDecoderRubamazzo.CarteinMano.size();i++){
-									System.out.println(""+ClientDecoderRubamazzo.CarteinMano.get(i));
-								}
-								System.out.println("le tue carte in banco sono:");
-								for(int i=0;i<ClientDecoderRubamazzo.CarteinBanco.size();i++){
-									System.out.println(""+ClientDecoderRubamazzo.CarteinBanco.get(i));
-								}
-								System.out.println("la carta in cima al tuo mazzo è: "+ClientDecoderRubamazzo.CartainCima0.getVal()+" "+ClientDecoderRubamazzo.CartainCima0.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto0);
-								System.out.println("la carta in cima al mazzetto del giocatore1: "+ClientDecoderRubamazzo.CartainCima1.getVal()+" "+ClientDecoderRubamazzo.CartainCima1.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto1);
-								if(ClientDecoderRubamazzo.CartenelMazzetto2!=null){
-									System.out.println("la carta in cima al tuo mazzo del giocatore2: "+ClientDecoderRubamazzo.CartainCima2.getVal()+" "+ClientDecoderRubamazzo.CartainCima2.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto2);
-								}
-								if(ClientDecoderRubamazzo.CartenelMazzetto3!=null){
-									System.out.println("la carta in cima al tuo mazzo del giocatore3: "+ClientDecoderRubamazzo.CartainCima3.getVal()+" "+ClientDecoderRubamazzo.CartainCima3.getSeme()+" e le carte nel mazzetto sono: "+ClientDecoderRubamazzo.CartenelMazzetto3);
-								}
-
-
-
-							}
 
 
 						}else{
