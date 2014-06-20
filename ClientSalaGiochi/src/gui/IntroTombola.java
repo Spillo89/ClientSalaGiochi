@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 public class IntroTombola {
 
 	private JFrame frame;
+	private String numeroschede="1";
 
 	/**
 	 * Launch the application.
@@ -58,10 +59,13 @@ public class IntroTombola {
 		lblQuanteSchedeVuoi.setBounds(10, 52, 237, 31);
 		frame.getContentPane().add(lblQuanteSchedeVuoi);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
-		comboBox.setBounds(257, 52, 50, 24);
-		frame.getContentPane().add(comboBox);
+		JComboBox numschede = new JComboBox();
+		numschede.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
+		numschede.setBounds(257, 52, 50, 24);
+		frame.getContentPane().add(numschede);
+		
+		numeroschede = numschede.getSelectedItem().toString();
+		
 		
 		JButton Gioca = new JButton("Gioca");
 		Gioca.setBounds(10, 112, 127, 30);

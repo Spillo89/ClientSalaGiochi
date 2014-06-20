@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 public class SceltaGioco {
 
 	private JFrame frame;
+	
 
 	/**
 	 * Launch the application.
@@ -92,10 +93,23 @@ public class SceltaGioco {
 		frame.getContentPane().add(lblSlotMachine);
 		
 		JButton class_tot = new JButton("Classifica Totale");
+		class_tot.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new Classifica(1);
+				frame.setVisible(false);
+			}
+			
+		});
 		class_tot.setBounds(95, 310, 168, 52);
 		frame.getContentPane().add(class_tot);
 		
 		JButton class_giorno = new JButton("classifica Giornaliera");
+		class_giorno.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new Classifica(2);
+				frame.setVisible(false);
+			}
+		});
 		class_giorno.setBounds(320, 310, 168, 52);
 		frame.getContentPane().add(class_giorno);
 		frame.setVisible(true);
