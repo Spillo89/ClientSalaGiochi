@@ -502,14 +502,17 @@ public class SimpleClient {
 							else{
 								int i=0;
 
-								dainviare="AGGIORNAMENTO\n";
-
-								writer.println(dainviare);
-								ricevuta=reader.readLine();
-
-								ClientDecoderRubamazzo.decoderestrazione(ricevuta);
+								
 
 								while(SimpleClient.parolachiave.equalsIgnoreCase("FINE")){
+									
+									dainviare="AGGIORNAMENTO\n";
+
+									writer.println(dainviare);
+									ricevuta=reader.readLine();
+
+									ClientDecoderRubamazzo.decoderestrazione(ricevuta);
+									
 									if(ClientDecoderIniRubamazzo.lista.get(i).equals(UtentePrelogin.getNomeUtente())){
 
 
@@ -542,13 +545,6 @@ public class SimpleClient {
 										if(i+1==ClientDecoderIniRubamazzo.lista.size()){
 											i=0;
 										}
-										dainviare="AGGIORNAMENTO\n";
-
-										writer.println(dainviare);
-
-										ricevuta=reader.readLine();
-
-										ClientDecoderRubamazzo.decoderestrazione(ricevuta);
 									}
 									else{
 										System.out.println("le tue carte in mano sono:");
