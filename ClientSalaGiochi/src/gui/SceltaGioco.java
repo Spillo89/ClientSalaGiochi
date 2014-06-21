@@ -19,6 +19,7 @@ public class SceltaGioco {
 	/**
 	 * Launch the application.
 	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -31,7 +32,7 @@ public class SceltaGioco {
 			}
 		});
 	}
-
+	*/
 	/**
 	 * Create the application.
 	 */

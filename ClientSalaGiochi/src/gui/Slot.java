@@ -10,15 +10,19 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Slot {
 
 	private JFrame frame;
 	private JTextField textField;
 
+	
 	/**
 	 * Launch the application.
 	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -30,7 +34,7 @@ public class Slot {
 				}
 			}
 		});
-	}
+	}  */
 
 	/**
 	 * Create the application.
@@ -54,38 +58,16 @@ public class Slot {
 		lblPoliSlot.setBounds(163, 23, 261, 36);
 		frame.getContentPane().add(lblPoliSlot);
 		
-		JButton risultato = new JButton("New button");
-		risultato.setIcon(new ImageIcon(Slot.class.getResource("/imageGUISlot/Jackpot.gif")));
-		risultato.setSelectedIcon(null);
-		risultato.setEnabled(false);
-		risultato.setBounds(90, 70, 378, 51);
-		frame.getContentPane().add(risultato);
-		
-		JButton num1 = new JButton("New button");
-		num1.setBackground(Color.WHITE);
-		num1.setForeground(Color.BLACK);
-		num1.setIcon(new ImageIcon(Slot.class.getResource("/imageGUISlot/5.png")));
-		num1.setEnabled(false);
-		num1.setBounds(90, 156, 110, 157);
-		frame.getContentPane().add(num1);
-		
-		JButton num2 = new JButton("New button");
-		num2.setBackground(Color.WHITE);
-		num2.setIcon(new ImageIcon(Slot.class.getResource("/imageGUISlot/5.png")));
-		num2.setEnabled(false);
-		num2.setBounds(222, 156, 110, 157);
-		frame.getContentPane().add(num2);
-		
-		JButton num3 = new JButton("New button");
-		num3.setBackground(Color.WHITE);
-		num3.setIcon(new ImageIcon(Slot.class.getResource("/imageGUISlot/5.png")));
-		num3.setEnabled(false);
-		num3.setBounds(358, 156, 110, 157);
-		frame.getContentPane().add(num3);
-		
 		JButton gioca = new JButton("New button");
+		gioca.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// qui verra chiamato il server per prendere i numeri, verranno inseriti in 3 variabili e sostituiti
+				// alle immagini dei numeri
+				// poi verrà calcolata la vincita e aggiornati i crediti
+			}
+		});
 		gioca.setIcon(new ImageIcon(Slot.class.getResource("/imageGUISlot/manovella.png")));
-		gioca.setBounds(491, 155, 80, 158);
+		gioca.setBounds(502, 155, 80, 158);
 		frame.getContentPane().add(gioca);
 		
 		JLabel lblCrediti = new JLabel("Crediti");
@@ -99,5 +81,25 @@ public class Slot {
 		textField.setBounds(491, 362, 47, 29);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("titolo");
+		lblNewLabel.setIcon(new ImageIcon(Slot.class.getResource("/imageGUISlot/Jackpot.gif")));
+		lblNewLabel.setBounds(109, 70, 378, 71);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel num1 = new JLabel("New label");
+		num1.setIcon(new ImageIcon(Slot.class.getResource("/imageGUISlot/5.png")));
+		num1.setBounds(103, 155, 110, 157);
+		frame.getContentPane().add(num1);
+		
+		JLabel label = new JLabel("New label");
+		label.setIcon(new ImageIcon(Slot.class.getResource("/imageGUISlot/5.png")));
+		label.setBounds(238, 155, 116, 157);
+		frame.getContentPane().add(label);
+		
+		JLabel label_1 = new JLabel("New label");
+		label_1.setIcon(new ImageIcon(Slot.class.getResource("/imageGUISlot/5.png")));
+		label_1.setBounds(381, 155, 110, 157);
+		frame.getContentPane().add(label_1);
 	}
 }

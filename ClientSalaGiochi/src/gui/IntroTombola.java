@@ -15,23 +15,9 @@ import java.awt.event.ActionEvent;
 public class IntroTombola {
 
 	private JFrame frame;
-	private String numeroschede="1";
+	private String numeroschede="3";
+	private JComboBox numschede;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IntroTombola window = new IntroTombola();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
@@ -59,15 +45,25 @@ public class IntroTombola {
 		lblQuanteSchedeVuoi.setBounds(10, 52, 237, 31);
 		frame.getContentPane().add(lblQuanteSchedeVuoi);
 		
-		JComboBox numschede = new JComboBox();
-		numschede.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
+		numschede = new JComboBox();
+		numschede.setModel(new DefaultComboBoxModel(new String[] {"4", "3", "2", "1"}));
 		numschede.setBounds(257, 52, 50, 24);
 		frame.getContentPane().add(numschede);
 		
-		numeroschede = numschede.getSelectedItem().toString();
+		
 		
 		
 		JButton Gioca = new JButton("Gioca");
+		Gioca.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				numeroschede = numschede.getSelectedItem().toString();
+				for(int i=1; i<=Integer.parseInt(numeroschede);i++){
+					new SchedaTombola(i);
+				} 
+					new Tabellone();
+				frame.setVisible(false);
+			}
+		});
 		Gioca.setBounds(10, 112, 127, 30);
 		frame.getContentPane().add(Gioca);
 		

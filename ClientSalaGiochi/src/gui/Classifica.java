@@ -20,21 +20,7 @@ public class Classifica {
 	private String tipo = null;
 	private JButton btnAggiorna;
 	private JButton btnIndietro;
-	/**
-	 * Launch the application.
-	 */
-/*	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Classifica window = new Classifica();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	} */
+
 
 	/**
 	 * Create the application.

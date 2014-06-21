@@ -20,6 +20,7 @@ public class Login {
 	/**
 	 * Launch the application.
 	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -31,7 +32,7 @@ public class Login {
 				}
 			}
 		});
-	}
+	} */
 
 	/**
 	 * Create the application.
