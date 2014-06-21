@@ -2,14 +2,13 @@ package costruttore;
 
 public class ListaGiocatori {
 	
-	private static String NomeUtente=null;
+	private  String NomeUtente=null;
 
-	@SuppressWarnings("static-access")
 	public ListaGiocatori(String nomeutente){
 		this.NomeUtente=nomeutente;
 	}
 
-	public static String getNomeUtente() {
+	public  String getNomeUtente() {
 		return NomeUtente;
 	}
 

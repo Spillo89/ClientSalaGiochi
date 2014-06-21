@@ -16,8 +16,6 @@ public class ClientDecoderTombola {
 			case "OK":
 				VincitaTombola.setVincita(Integer.parseInt(st.nextToken()));
 				VincitaTombola.setTipodiVincita(st.nextToken());
-				VincitaTombola.setSchedadaBloccare(Integer.parseInt(st.nextToken()));
-				VincitaTombola.setLineadaBloccare(Integer.parseInt(st.nextToken()));
 			default:
 				System.out.println("errore, stringa non riconosciuta");	
 			};
