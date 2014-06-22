@@ -82,6 +82,11 @@ public class SceltaGioco {
 		 * statusrubamazzo = true;
 		 * }*/
 		JButton rubamazzo = new JButton("New button");
+		rubamazzo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new Rubamazzo(ut);
+			}
+		});
 		rubamazzo.setEnabled(statusrubamazzo);
 		rubamazzo.setIcon(new ImageIcon(SceltaGioco.class.getResource("/imageGUI/rubamazzo.jpg")));
 		rubamazzo.setBounds(238, 108, 122, 160);
