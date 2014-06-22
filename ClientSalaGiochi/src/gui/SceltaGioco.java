@@ -14,6 +14,9 @@ import java.awt.event.ActionEvent;
 public class SceltaGioco {
 
 	private JFrame frame;
+	private String ut;
+	private Integer crt;
+	private Boolean statustombola=false, statusrubamazzo=false;
 	
 
 	/**
@@ -36,7 +39,9 @@ public class SceltaGioco {
 	/**
 	 * Create the application.
 	 */
-	public SceltaGioco() {
+	public SceltaGioco(String nome, int crediti) {
+		ut=nome;
+		crt = crediti;
 		initialize();
 	}
 
@@ -55,23 +60,29 @@ public class SceltaGioco {
 		lblScegliIlGioco.setBounds(95, 10, 393, 50);
 		frame.getContentPane().add(lblScegliIlGioco);
 		
+		/*if (crt>100) {
+		 * statustombola = true;
+		 * }*/
 		JButton tombola = new JButton("New button");
+		tombola.setEnabled(statustombola);
 		tombola.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new IntroTombola();
+				new IntroTombola(ut,crt);
 			}
 		});
 		tombola.setIcon(new ImageIcon(SceltaGioco.class.getResource("/imageGUI/tombola.jpg")));
 		tombola.setBounds(48, 108, 122, 160);
 		frame.getContentPane().add(tombola);
-		
 		JLabel lblTombola = new JLabel("Tombola");
 		lblTombola.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblTombola.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTombola.setBounds(48, 71, 122, 41);
 		frame.getContentPane().add(lblTombola);
-		
+		/*if (crt>200){		 
+		 * statusrubamazzo = true;
+		 * }*/
 		JButton rubamazzo = new JButton("New button");
+		rubamazzo.setEnabled(statusrubamazzo);
 		rubamazzo.setIcon(new ImageIcon(SceltaGioco.class.getResource("/imageGUI/rubamazzo.jpg")));
 		rubamazzo.setBounds(238, 108, 122, 160);
 		frame.getContentPane().add(rubamazzo);
@@ -81,8 +92,14 @@ public class SceltaGioco {
 		lblRubamazzo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblRubamazzo.setBounds(238, 71, 122, 41);
 		frame.getContentPane().add(lblRubamazzo);
-		
+		// }
 		JButton Slot_machine = new JButton("slot");
+		Slot_machine.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new Slot(crt);
+				frame.setVisible(false);
+			}
+		});
 		Slot_machine.setIcon(new ImageIcon(SceltaGioco.class.getResource("/imageGUI/slot_machine.jpeg")));
 		Slot_machine.setBounds(426, 108, 122, 160);
 		frame.getContentPane().add(Slot_machine);
@@ -96,7 +113,7 @@ public class SceltaGioco {
 		JButton class_tot = new JButton("Classifica Totale");
 		class_tot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new Classifica(1);
+				new Classifica(1,ut,crt);
 				frame.setVisible(false);
 			}
 			
@@ -107,7 +124,7 @@ public class SceltaGioco {
 		JButton class_giorno = new JButton("classifica Giornaliera");
 		class_giorno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new Classifica(2);
+				new Classifica(2,ut, crt);
 				frame.setVisible(false);
 			}
 		});

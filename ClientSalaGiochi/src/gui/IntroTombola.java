@@ -15,14 +15,17 @@ import java.awt.event.ActionEvent;
 public class IntroTombola {
 
 	private JFrame frame;
-	private String numeroschede="3";
+	private String numeroschede="1",ut;
 	private JComboBox numschede;
+	private int crt;
 
 
 	/**
 	 * Create the application.
 	 */
-	public IntroTombola() {
+	public IntroTombola(String user, int crediti) {
+		ut=user;
+		crt=crediti;
 		initialize();
 	}
 
@@ -58,7 +61,7 @@ public class IntroTombola {
 			public void actionPerformed(ActionEvent arg0) {
 				numeroschede = numschede.getSelectedItem().toString();
 				for(int i=1; i<=Integer.parseInt(numeroschede);i++){
-					new SchedaTombola(i);
+					new SchedaTombola(i,ut);
 				} 
 					new Tabellone();
 				frame.setVisible(false);
@@ -70,7 +73,7 @@ public class IntroTombola {
 		JButton back = new JButton("Torna Indietro");
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new SceltaGioco();
+				new SceltaGioco(ut,crt);
 				frame.setVisible(false);
 			}
 		});

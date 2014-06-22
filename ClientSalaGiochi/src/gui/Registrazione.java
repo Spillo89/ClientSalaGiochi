@@ -100,7 +100,9 @@ public class Registrazione {
 		JButton btnRegistrati = new JButton("Registrati");
 		btnRegistrati.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				// invio informazioni al server
+				new Start();
+				frame.setVisible(false);
 			}
 		});
 		btnRegistrati.setBounds(162, 356, 91, 23);

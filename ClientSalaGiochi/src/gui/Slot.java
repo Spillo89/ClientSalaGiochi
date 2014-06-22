@@ -16,8 +16,8 @@ import java.awt.event.ActionEvent;
 public class Slot {
 
 	private JFrame frame;
-	private JTextField textField;
-
+	private JTextField txtAaa;
+	private int crt;
 	
 	/**
 	 * Launch the application.
@@ -39,7 +39,8 @@ public class Slot {
 	/**
 	 * Create the application.
 	 */
-	public Slot() {
+	public Slot(int crediti) {
+		crt= crediti;
 		initialize();
 	}
 
@@ -76,11 +77,12 @@ public class Slot {
 		lblCrediti.setBounds(381, 360, 110, 29);
 		frame.getContentPane().add(lblCrediti);
 		
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setBounds(491, 362, 47, 29);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		txtAaa = new JTextField();
+		txtAaa.setText(""+crt);
+		txtAaa.setEditable(false);
+		txtAaa.setBounds(491, 362, 47, 29);
+		frame.getContentPane().add(txtAaa);
+		txtAaa.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("titolo");
 		lblNewLabel.setIcon(new ImageIcon(Slot.class.getResource("/imageGUISlot/Jackpot.gif")));

@@ -16,8 +16,8 @@ public class Classifica {
 
 	private JFrame frame;
 	private JTable table;
-	private int cl;
-	private String tipo = null;
+	private int cl, crt;
+	private String tipo = null, ut;
 	private JButton btnAggiorna;
 	private JButton btnIndietro;
 
@@ -25,8 +25,10 @@ public class Classifica {
 	/**
 	 * Create the application.
 	 */
-	public Classifica(int classtype) {
+	public Classifica(int classtype, String user, int crediti) {
 		cl=classtype;
+		ut=user;
+		crt= crediti;
 		initialize();
 	}
 
@@ -69,7 +71,7 @@ public class Classifica {
 		btnAggiorna = new JButton("Aggiorna");
 		btnAggiorna.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new Classifica(cl);
+				new Classifica(cl,ut, crt);
 				frame.setVisible(false);
 			}
 		});
@@ -79,7 +81,7 @@ public class Classifica {
 		btnIndietro = new JButton("Indietro");
 		btnIndietro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new SceltaGioco();
+				new SceltaGioco(ut,crt);
 				frame.setVisible(false);
 			}
 		});

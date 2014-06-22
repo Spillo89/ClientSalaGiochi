@@ -24,7 +24,7 @@ public class SchedaTombola {
 	private JTable table;
 	private Integer id;
 	private JComboBox numeroRiga;
-	private String nRiga, tipoVincita;
+	private String nRiga, tipoVincita, ut;
 	private JRadioButton rdbtnAmbo;
 	private JRadioButton rdbtnTerno;
 	private JRadioButton rdbtnQuaterna;
@@ -36,7 +36,8 @@ public class SchedaTombola {
 	/**
 	 * Create the application.
 	 */
-	public SchedaTombola(int id_scheda) {
+	public SchedaTombola(int id_scheda, String user) {
+		ut=user;
 		id=id_scheda;
 		initialize();
 	}

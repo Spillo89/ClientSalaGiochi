@@ -16,6 +16,8 @@ public class Login {
 	private JFrame frame;
 	private JTextField utente;
 	private JTextField psw;
+	private String ut;
+	private Integer crediti=0;
 
 	/**
 	 * Launch the application.
@@ -77,9 +79,12 @@ public class Login {
 		JButton btnLogga = new JButton("Logga");
 		btnLogga.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String ut= utente.getText();
+				ut= utente.getText();
 				String ps= psw.getText();
-				new SceltaGioco();
+				// qui controllo su server se è presente, e se lo è
+				// passo come parametro il nome utente e i crediti
+				// per ora lo setto a 0 
+				new SceltaGioco(ut, crediti);
 				frame.setVisible(false);
 			}
 		});
