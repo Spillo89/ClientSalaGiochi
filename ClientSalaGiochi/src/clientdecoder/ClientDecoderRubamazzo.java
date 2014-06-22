@@ -5,7 +5,6 @@ import java.util.StringTokenizer;
 
 import pakageClient.SimpleClient;
 import costruttore.Carta;
-import costruttore.LoginFail;
 import costruttore.NoCrediti;
 
 public class ClientDecoderRubamazzo {
@@ -20,8 +19,10 @@ public class ClientDecoderRubamazzo {
 	public static Integer CartenelMazzetto1=null;
 	public static Integer CartenelMazzetto2=null;
 	public static Integer CartenelMazzetto3=null;
+	public static ArrayList<String> classruba=new ArrayList<String>();
+	public static Integer creditivinti=null;
 
-	public static void decoderestrazione(String stringainiziale){
+	public static void decoderruba(String stringainiziale){
 
 		Carta carta=new Carta(null, null);
 		StringTokenizer st = new StringTokenizer(stringainiziale, "#");
@@ -80,6 +81,18 @@ public class ClientDecoderRubamazzo {
 				CartenelMazzetto3=Integer.parseInt(st.nextToken());
 			}
 			SimpleClient.parolachiave="OK";
+		case"CLASS":
+			
+			Integer j=0;
+			while(j<ClientDecoderIniRubamazzo.lista.size()){
+				j++;
+				classruba.add(st.nextToken());				
+			}
+			
+			creditivinti=Integer.parseInt(st.nextToken());
+			
+			SimpleClient.parolachiave="FINE";
+			
 		default:
 			System.out.println("errore, stringa non riconosciuta");	
 		};

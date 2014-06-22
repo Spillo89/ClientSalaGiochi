@@ -7,6 +7,7 @@ import costruttore.Carta;
 
 public class OpzioneCarta {
 
+	@SuppressWarnings("null")
 	public static Carta opzionecarta() {
 
 		Carta carta=null;

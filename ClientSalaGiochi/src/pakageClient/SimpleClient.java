@@ -502,16 +502,18 @@ public class SimpleClient {
 							else{
 								int i=0;
 
-								
+
 
 								while(SimpleClient.parolachiave.equalsIgnoreCase("FINE")){
-									
+
 									dainviare="AGGIORNAMENTO\n";
 
 									writer.println(dainviare);
 									ricevuta=reader.readLine();
 
-									ClientDecoderRubamazzo.decoderestrazione(ricevuta);
+									ClientDecoderRubamazzo.decoderruba(ricevuta);
+
+									//chiedere l'aggiornamento quando non giochi tu o giocare in caso sia il tuo turno facendo scorrere l'array lista e vedendo se il nome al'interno è uguale a quello dell'utente
 									
 									if(ClientDecoderIniRubamazzo.lista.get(i).equals(UtentePrelogin.getNomeUtente())){
 
@@ -571,7 +573,7 @@ public class SimpleClient {
 
 										ricevuta=reader.readLine();
 
-										ClientDecoderRubamazzo.decoderestrazione(ricevuta);
+										ClientDecoderRubamazzo.decoderruba(ricevuta);
 
 										if(i+1==ClientDecoderIniRubamazzo.lista.size()){
 											i=0;
@@ -579,7 +581,9 @@ public class SimpleClient {
 
 									}
 								}
-								//chiedere l'aggiornamento quando non giochi tu o giocare in caso sia il tuo turno facendo scorrere l'array lista e vedendo se il nome al'interno è uguale a quello dell'utente
+								
+								//stampo la classifica
+								
 							}
 
 

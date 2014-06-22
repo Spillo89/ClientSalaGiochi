@@ -12,6 +12,7 @@ public class ClientDecoderIniRubamazzo {
 
 	public static ArrayList<ListaGiocatori> lista=new ArrayList<ListaGiocatori>();
 	
+	@SuppressWarnings("null")
 	public static void decoderinirubamazzo(String stringainiziale){
 		ListaGiocatori nomeutente=null;
 		StringTokenizer st = new StringTokenizer(stringainiziale, "#");
