@@ -9,6 +9,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+
+import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -28,6 +30,7 @@ public class SchedaTombola {
 	private JRadioButton rdbtnQuaterna;
 	private JRadioButton rdbtnCinquina;
 	private JRadioButton rdbtnTombola;
+	private ButtonGroup vincita;
 
 
 	/**
@@ -86,6 +89,14 @@ public class SchedaTombola {
 		rdbtnTombola = new JRadioButton("Tombola");
 		rdbtnTombola.setBounds(51, 204, 83, 23);
 		frame.getContentPane().add(rdbtnTombola);
+		
+		vincita = new ButtonGroup();
+		vincita.add(rdbtnAmbo);
+		vincita.add(rdbtnTerno);
+		vincita.add(rdbtnQuaterna);
+		vincita.add(rdbtnCinquina);
+		vincita.add(rdbtnTombola);
+		
 		
 		JLabel lblSullaRigaNumero = new JLabel("Sulla riga numero: ");
 		lblSullaRigaNumero.setBounds(252, 156, 99, 14);
