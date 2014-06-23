@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 public class Rubamazzo {
 
@@ -43,21 +45,6 @@ public class Rubamazzo {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.GRAY);
 		frame.getContentPane().setLayout(null);
-		
-		JLabel g1c3 = new JLabel("carta3");
-		g1c3.setIcon(new ImageIcon(Rubamazzo.class.getResource("/imageGUIRubaMazzo/vuoto.png")));
-		g1c3.setBounds(381, 459, 68, 103);
-		frame.getContentPane().add(g1c3);
-		
-		JLabel g1c2 = new JLabel("carta2");
-		g1c2.setIcon(new ImageIcon(Rubamazzo.class.getResource("/imageGUIRubaMazzo/vuoto.png")));
-		g1c2.setBounds(288, 459, 68, 103);
-		frame.getContentPane().add(g1c2);
-		
-		JLabel g1c1 = new JLabel("carta1");
-		g1c1.setIcon(new ImageIcon(Rubamazzo.class.getResource("/imageGUIRubaMazzo/vuoto.png")));
-		g1c1.setBounds(198, 459, 68, 103);
-		frame.getContentPane().add(g1c1);
 		
 		JLabel g2mazzo = new JLabel("mazzo");
 		g2mazzo.setIcon(new ImageIcon(Rubamazzo.class.getResource("/imageGUIRubaMazzo/retro.jpg")));
@@ -126,6 +113,21 @@ public class Rubamazzo {
 		g4mazzo.setIcon(new ImageIcon(Rubamazzo.class.getResource("/imageGUIRubaMazzo/retro2.jpg")));
 		g4mazzo.setBounds(579, 166, 103, 68);
 		frame.getContentPane().add(g4mazzo);
+		
+		JButton g1c1 = new JButton("");
+		g1c1.setIcon(new ImageIcon(Rubamazzo.class.getResource("/imageGUIRubaMazzo/vuoto.png")));
+		g1c1.setBounds(191, 459, 68, 103);
+		frame.getContentPane().add(g1c1);
+		
+		JButton g1c2 = new JButton("");
+		g1c2.setIcon(new ImageIcon(Rubamazzo.class.getResource("/imageGUIRubaMazzo/vuoto.png")));
+		g1c2.setBounds(287, 459, 68, 103);
+		frame.getContentPane().add(g1c2);
+		
+		JButton g1c3 = new JButton("");
+		g1c3.setIcon(new ImageIcon(Rubamazzo.class.getResource("/imageGUIRubaMazzo/vuoto.png")));
+		g1c3.setBounds(381, 459, 68, 103);
+		frame.getContentPane().add(g1c3);
 		frame.setBounds(100, 100, 700, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
