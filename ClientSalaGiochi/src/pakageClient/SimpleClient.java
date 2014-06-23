@@ -46,8 +46,10 @@ public class SimpleClient {
 		Boolean ripeti=false;
 
 		try { 
+			System.out.println("entro nel try");
 			//Connessione al server remoto 
 			socket = new Socket(host , port); 
+			System.out.println("creo soket");
 			//Inizializzo la lettura dal socket 
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream())); 
 			//Inizializzo la scrittura sul socket 
