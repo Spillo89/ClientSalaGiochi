@@ -17,12 +17,14 @@ public class ClientDecoderRegistrazione {
 			case "KO":
 				LoginFail.setMotivo(st.nextToken());
 				SimpleClient.parolachiave="KO";
+				break;
 			case "OK":
 				UtentePostlogin.setNome(st.nextToken());
 				UtentePostlogin.setCognome(st.nextToken());
 				UtentePostlogin.setCrediti(Integer.parseInt(st.nextToken()));
 				UtentePostlogin.setPosizione(Integer.parseInt(st.nextToken()));
 				SimpleClient.parolachiave="OK";
+				break;
 			default:
 				System.out.println("errore, stringa non riconosciuta");	
 		};

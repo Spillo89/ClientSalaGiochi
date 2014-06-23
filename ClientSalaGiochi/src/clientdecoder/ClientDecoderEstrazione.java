@@ -14,8 +14,10 @@ public static void decoderestrazione(String stringainiziale){
 		{
 			case "KO":
 				LoginFail.setMotivo(st.nextToken());
+				break;
 			case "OK":
 				NumeroEstratto.setNumero(Integer.parseInt(st.nextToken()));
+				break;
 			default:
 				System.out.println("errore, stringa non riconosciuta");	
 		};

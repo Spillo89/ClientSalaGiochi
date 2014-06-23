@@ -13,9 +13,11 @@ public class ClientDecoderTombola {
 			{
 			case "KO":
 				LoginFail.setMotivo(st.nextToken());
+				break;
 			case "OK":
 				VincitaTombola.setVincita(Integer.parseInt(st.nextToken()));
 				VincitaTombola.setTipodiVincita(st.nextToken());
+				break;
 			default:
 				System.out.println("errore, stringa non riconosciuta");	
 			};

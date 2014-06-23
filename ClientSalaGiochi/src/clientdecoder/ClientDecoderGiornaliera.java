@@ -20,6 +20,7 @@ public class ClientDecoderGiornaliera {
 		{
 		case "KO":
 			LoginFail.setMotivo(st.nextToken());
+			break;
 		case "OK":
 
 			while(st.nextElement() != null){
@@ -29,6 +30,7 @@ public class ClientDecoderGiornaliera {
 				classifica.add(clas);
 			}
 			SimpleClient.parolachiave="OK";
+			break;
 		default:
 			System.out.println("errore, stringa non riconosciuta");	
 		};

@@ -21,12 +21,14 @@ public class ClientDecoderIniRubamazzo {
 			case "KO":
 				NoCrediti.setCreditiTotali(Integer.parseInt(st.nextToken()));
 				SimpleClient.parolachiave="KO";
+				break;
 			case "OK":
 				if(st.nextElement()!=null){
 					nomeutente.setNomeUtente(st.nextToken());
 					lista.add(nomeutente);
 				}
 				SimpleClient.parolachiave="OK";
+				break;
 			default:
 				System.out.println("errore, stringa non riconosciuta");	
 		};

@@ -64,17 +64,22 @@ public class SimpleClient {
 				} 
 				writer.println(dainviare);//scrivo su socket
 				ricevuta = reader.readLine(); //Leggo dal socket
-
+				System.out.println("ricevuta: " +ricevuta);
+				
 				if(SimpleClient.parolachiave.equalsIgnoreCase("LOGIN")){
+					System.out.println("sono nell'if del login");
 					ClientDecoderLogin.decoderlogin(ricevuta);
 				}else{
+					System.out.println("sono nell'else del login");
 					ClientDecoderRegistrazione.decoderregistrazione(ricevuta);
 				}
 
 				if(SimpleClient.parolachiave.equalsIgnoreCase("KO")){
+					System.out.println("sono nell'if in ko");
 					System.out.println(LoginFail.getMotivo());
 					ripeti=false;
 				}else{
+					System.out.println("sono nell'else in ko");
 					ripeti=true;
 				}
 			}
@@ -91,11 +96,12 @@ public class SimpleClient {
 				}
 
 				writer.println(dainviare);//scrivo su socket
+				
 				ricevuta = reader.readLine(); //Leggo dal socket
 
 				if(SimpleClient.parolachiave.equalsIgnoreCase("SLOT")){
 					ClientDecoderSlot.decoderslot(ricevuta);
-
+					
 					if(SimpleClient.parolachiave.equalsIgnoreCase("KO")){
 						System.out.println("hai solo "+NoCrediti.getCreditiTotali()+" quindi non puoi giocare");
 					}else{

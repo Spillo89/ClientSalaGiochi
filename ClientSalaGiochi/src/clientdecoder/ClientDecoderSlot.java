@@ -16,6 +16,7 @@ public class ClientDecoderSlot {
 			case "KO":
 				NoCrediti.setCreditiTotali(Integer.parseInt((st.nextToken())));
 				SimpleClient.parolachiave="KO";
+				break;
 			case "OK":
 				RisultatoSlot.setValore1(st.nextToken());
 				RisultatoSlot.setValore2(st.nextToken());
@@ -24,6 +25,7 @@ public class ClientDecoderSlot {
 				RisultatoSlot.setCreditiVinti(Integer.parseInt(st.nextToken()));
 				RisultatoSlot.setCreditiTotali(Integer.parseInt(st.nextToken()));
 				SimpleClient.parolachiave="OK";
+				break;
 			default:
 				System.out.println("errore, stringa non riconosciuta");	
 		};

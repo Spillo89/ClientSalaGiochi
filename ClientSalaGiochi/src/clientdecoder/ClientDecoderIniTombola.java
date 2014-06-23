@@ -18,6 +18,7 @@ public class ClientDecoderIniTombola {
 		case "KO":
 			NoCrediti.setCreditiTotali(Integer.parseInt(st.nextToken()));
 			SimpleClient.parolachiave="KO";
+			break;
 		case "OK":
 			SchedaTombola.setNumeroSchede(Integer.parseInt(st.nextToken()));
 			for(i=0;i<3;i++){
@@ -42,6 +43,7 @@ public class ClientDecoderIniTombola {
 			}
 			SchedaTombola.setCreditiTotali(Integer.parseInt(st.nextToken()));
 			SimpleClient.parolachiave="OK";
+			break;
 		default:
 			System.out.println("errore, stringa non riconosciuta");	
 		};

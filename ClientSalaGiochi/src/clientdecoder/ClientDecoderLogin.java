@@ -14,6 +14,7 @@ public class ClientDecoderLogin {
 			case "KO":
 				LoginFail.setMotivo(st.nextToken());
 				SimpleClient.parolachiave="KO";
+				break;
 			case "OK":
 				UtentePostlogin.setNome(st.nextToken());
 				UtentePostlogin.setCognome(st.nextToken());
@@ -21,6 +22,7 @@ public class ClientDecoderLogin {
 				UtentePostlogin.setUltimoLogin(st.nextToken());
 				UtentePostlogin.setPosizione(Integer.parseInt(st.nextToken()));
 				SimpleClient.parolachiave="KO";
+				break;
 			default:
 				System.out.println("errore, stringa non riconosciuta");	
 		};

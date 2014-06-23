@@ -31,6 +31,7 @@ public class ClientDecoderRubamazzo {
 		case "KO":
 			NoCrediti.setCreditiTotali(Integer.parseInt(st.nextToken()));
 			SimpleClient.parolachiave="KO";
+			break;
 		case "OK":
 
 			while(st.nextElement() != "CARTEINMANO"){
@@ -81,6 +82,7 @@ public class ClientDecoderRubamazzo {
 				CartenelMazzetto3=Integer.parseInt(st.nextToken());
 			}
 			SimpleClient.parolachiave="OK";
+			break;
 		case"CLASS":
 			
 			Integer j=0;
@@ -92,7 +94,7 @@ public class ClientDecoderRubamazzo {
 			creditivinti=Integer.parseInt(st.nextToken());
 			
 			SimpleClient.parolachiave="FINE";
-			
+			break;
 		default:
 			System.out.println("errore, stringa non riconosciuta");	
 		};
