@@ -2,8 +2,6 @@ package pakageClient;
 
 import java.io.*; 
 import java.net.*; 
-import java.util.Scanner;
-
 import opzioni.*;
 
 import costruttore.Carta;
@@ -55,20 +53,23 @@ public class SimpleClient {
 			//Inizializzo la scrittura sul socket 
 			writer = new PrintWriter(socket.getOutputStream(), true); 
 			BufferedReader inputBuffer = new BufferedReader(new InputStreamReader(System.in));
+			
+			
 			while(ripeti==false){
 				dainviare=OpzioneIniziale.opzione();
-				try { 
-					//invio la combinazione user name e pass + se loggare o registrarsi al server
-				}finally{ 
-					try { inputBuffer.close(); } catch (IOException e) { } 
-				} 
+				
 				writer.println(dainviare);//scrivo su socket
+				writer.flush();
+				
+				
 				ricevuta = reader.readLine(); //Leggo dal socket
 				System.out.println("ricevuta: " +ricevuta);
 				
 				if(SimpleClient.parolachiave.equalsIgnoreCase("LOGIN")){
+					
 					System.out.println("sono nell'if del login");
 					ClientDecoderLogin.decoderlogin(ricevuta);
+					
 				}else{
 					System.out.println("sono nell'else del login");
 					ClientDecoderRegistrazione.decoderregistrazione(ricevuta);
@@ -89,16 +90,19 @@ public class SimpleClient {
 
 
 				dainviare=OpzioneSceltaGioco.opzione(); //chiedo all'utente cosa vuole fare
-				try{
-
-				}finally{
-					try { inputBuffer.close(); } catch (IOException e) { } 
-				}
-
+				
+				
+				
+				
 				writer.println(dainviare);//scrivo su socket
+				writer.flush();
+				
+				System.out.println("ho scritto da inviare sul server e aspetto "+dainviare);
 				
 				ricevuta = reader.readLine(); //Leggo dal socket
-
+				
+				System.out.println("sono dopo il reader "+ricevuta);
+				
 				if(SimpleClient.parolachiave.equalsIgnoreCase("SLOT")){
 					ClientDecoderSlot.decoderslot(ricevuta);
 					
@@ -118,6 +122,8 @@ public class SimpleClient {
 							dainviare="ESTRAZIONE\n";
 
 							writer.println(dainviare);
+							writer.flush();
+							
 							ricevuta=reader.readLine();
 							System.out.println("il numero estrato è: "+Integer.parseInt(ricevuta));
 							for(int j=0; j<3;j++){
@@ -156,82 +162,81 @@ public class SimpleClient {
 								if(i==2){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
-
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("AMBO");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==3){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
-
-									String stringa = scanner.nextLine();
+								
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TERNO");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==4){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
-
-									String stringa = scanner.nextLine();
+								
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("QUATERNA");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==5){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
-
-									String stringa = scanner.nextLine();
+								
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("CINQUINA");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==15){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
-
-									String stringa = scanner.nextLine();
+							
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TOMBOLA");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 							}
 							i=0;
@@ -244,82 +249,77 @@ public class SimpleClient {
 								if(i==2){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
-
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("AMBO");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==3){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
-
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TERNO");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==4){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
-
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("QUATERNA");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==5){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
-
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("CINQUINA");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==15){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
-
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TOMBOLA");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 							}
 							i=0;
@@ -332,82 +332,80 @@ public class SimpleClient {
 								if(i==2){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
-
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("AMBO");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==3){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
-
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TERNO");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==4){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
 
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("QUATERNA");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==5){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
 
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("CINQUINA");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==15){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
 
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TOMBOLA");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 							}
 							i=0;
@@ -420,81 +418,81 @@ public class SimpleClient {
 								if(i==2){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
 
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("AMBO");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==3){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
-
-									String stringa = scanner.nextLine();
+								
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TERNO");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==4){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
 
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("QUATERNA");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==5){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
 
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("CINQUINA");
 										dainviare=ClientEncoderVincita.tombola();
 
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 								if(i==15){
 									System.out.println("hai fatto ambo, dichiara la tua vincita digitando v o non dichiararla digitando l");
 
-									Scanner scanner = new Scanner(System.in); 
 
-									String stringa = scanner.nextLine();
+									String stringa = OpzioneIniziale.scanner.nextLine();
 
 									if(stringa.equalsIgnoreCase("v")){
 										VincitaTombola.setTipodiVincita("TOMBOLA");
 										dainviare=ClientEncoderVincita.tombola();
 										writer.println(dainviare);
+										writer.flush();
+										
 										ricevuta=reader.readLine();
 									}
-									scanner.close();
 								}
 							}
 						}
@@ -517,6 +515,8 @@ public class SimpleClient {
 									dainviare="AGGIORNAMENTO\n";
 
 									writer.println(dainviare);
+									writer.flush();
+									
 									ricevuta=reader.readLine();
 
 									ClientDecoderRubamazzo.decoderruba(ricevuta);
@@ -550,6 +550,8 @@ public class SimpleClient {
 										dainviare=ClientEncoderRubamazzo.rubamazzo(carta);
 
 										writer.println(dainviare);
+										writer.flush();
+										
 
 										i++;
 										if(i+1==ClientDecoderIniRubamazzo.lista.size()){
@@ -578,6 +580,7 @@ public class SimpleClient {
 										dainviare="AGGIORNAMENTO\n";
 
 										writer.println(dainviare);
+										writer.flush();
 
 										ricevuta=reader.readLine();
 

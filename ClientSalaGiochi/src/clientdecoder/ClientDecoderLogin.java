@@ -21,7 +21,7 @@ public class ClientDecoderLogin {
 				UtentePostlogin.setCrediti(Integer.parseInt(st.nextToken()));
 				UtentePostlogin.setUltimoLogin(st.nextToken());
 				UtentePostlogin.setPosizione(Integer.parseInt(st.nextToken()));
-				SimpleClient.parolachiave="KO";
+				SimpleClient.parolachiave="OK";
 				break;
 			default:
 				System.out.println("errore, stringa non riconosciuta");	

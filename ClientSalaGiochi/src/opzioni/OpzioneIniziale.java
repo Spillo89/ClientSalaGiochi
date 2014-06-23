@@ -9,6 +9,8 @@ import clientencoder.*;
 import costruttore.PerRegistrazione;
 
 public class OpzioneIniziale {
+	
+	public static Scanner scanner = new Scanner(System.in); 
 
 	public static String opzione(){
 
@@ -17,7 +19,7 @@ public class OpzioneIniziale {
 		
 		System.out.println("premere R per registrarsi o L per effettuare il login se sei già registrato");
 
-		Scanner scanner = new Scanner(System.in); 
+		
 
 		stringa = scanner.nextLine(); 
 
@@ -38,10 +40,9 @@ public class OpzioneIniziale {
 			System.out.println("Inserire il tuo cognome");
 			
 			PerRegistrazione.setCognome(scanner.nextLine());
-			
-			scanner.close();
-			
+						
 			dainviare=ClientEncoderRegistrazione.registrazione();
+			
 			
 			return dainviare;
 		}else{
@@ -54,9 +55,7 @@ public class OpzioneIniziale {
 			System.out.println("Inserire il nome password");
 			
 			PerRegistrazione.setPsw(scanner.nextLine());
-			
-			scanner.close();
-			
+						
 			dainviare=ClientEncoderLogin.login();
 			
 			return dainviare;

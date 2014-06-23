@@ -2,7 +2,10 @@
 
 package opzioni;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Random;
 
 import pakageClient.SimpleClient;
 
@@ -12,47 +15,46 @@ import costruttore.RichiestaTombola;
 
 public class OpzioneSceltaGioco {
 
-	@SuppressWarnings("resource")
-	public static String opzione(){
+
+	public static String opzione() throws IOException{
 
 		String dainviare=null;
-		String stringa=null;
 
 		System.out.println("S per la slot, T per la tombola, R per rubamazzo, C per la classifica globale o G per la classifica giornaliera");
 
-		Scanner scanner = new Scanner(System.in); 
 
-		stringa = scanner.nextLine(); 
+		System.out.println("ho inizializzato lo scanner");
+
+	
+		System.out.println("ho fatto lo scanner senza aspettare imput");
+		
+		String stringa="S";
+		
+		System.out.println("la stringa è: "+stringa);
 
 		if(stringa.equalsIgnoreCase("S")){
 
 			System.out.println("premi un tasto per e invio per far partire la slot");
 
-			scanner = new Scanner(System.in); 
-
 			dainviare=ClientEncoderSlot.slot();
+			
+			System.out.println("sono uscito da clientencoderslot");
 
 			SimpleClient.parolachiave="SLOT";
 
-			scanner.close();
-
-			return dainviare;
 		}else{
 			if(stringa.equalsIgnoreCase("T")){
 
 				System.out.println("digita il numero di schede che vuoi acquistare da 1 a 4");
 
-				scanner = new Scanner(System.in);
 
-				RichiestaTombola.setNumeroSchede(Integer.parseInt(scanner.nextLine()));
+				RichiestaTombola.setNumeroSchede(Integer.parseInt(OpzioneIniziale.scanner.nextLine()));
 
 				dainviare=ClientEncoderTombola.tombola();
 
 				SimpleClient.parolachiave="TOMBOLA";
 
-				scanner.close();
 
-				return dainviare;
 
 			}
 			else{
@@ -61,29 +63,31 @@ public class OpzioneSceltaGioco {
 
 					SimpleClient.parolachiave="CLASSIFICAGLOBALE";
 
-					return dainviare;
 				}else{
 					if(stringa.equalsIgnoreCase("G")){
 						dainviare=ClientEncoderClassificaGiornaliera.classifica();
 
 						SimpleClient.parolachiave="CLASSIFICAGIORNALIERA";
 
-						return dainviare;
 					}else{
 						if(stringa.equalsIgnoreCase("R")){
 							dainviare=ClientEncoderIniRubamazzo.rubamazzo();
-							
+
 							SimpleClient.parolachiave="RUBAMAZZO";
-							
-							return dainviare;
+
 						}
 						else{
 							System.out.println("comando non riconosciuto");
-							return null;
+
+							dainviare=null;
 						}
 					}
 				}
 			}			
 		}
+		
+		System.out.println("ritorno da inviare: "+dainviare);
+		
+		return dainviare;
 	}
 }

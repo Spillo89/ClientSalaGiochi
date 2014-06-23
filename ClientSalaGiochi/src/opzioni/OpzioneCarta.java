@@ -1,7 +1,5 @@
 package opzioni;
 
-import java.util.Scanner;
-
 import clientdecoder.ClientDecoderRubamazzo;
 import costruttore.Carta;
 
@@ -19,21 +17,18 @@ public class OpzioneCarta {
 			}
 			System.out.println("Scegline una inserendo il numero");
 
-			Scanner scanner = new Scanner(System.in); 
-
-			String stringa = scanner.nextLine();
+			String stringa = OpzioneIniziale.scanner.nextLine();
 
 			carta.setVal(Integer.parseInt(stringa));
 
 			System.out.println("e una lettera per indicare il simbolo(B per bastoni, S per Spade, D per denari e C per coppe)");
 
-			stringa = scanner.nextLine();
+			stringa = OpzioneIniziale.scanner.nextLine();
 
 			carta.setSeme(stringa);
 			
 			esiste=controllacarta(carta);
 
-			scanner.close();
 		}
 
 		return carta;
